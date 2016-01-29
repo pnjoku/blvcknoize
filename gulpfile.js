@@ -79,7 +79,7 @@ gulp.task('compile-font-awesome-less', function() {
 
 	// copy fonts to correct location
 	gulp.src(nodeModulesRoot + 'font-awesome/fonts/*-webfont.*')
-		.pipe(gulp.dest(staticRoot + 'fonts/'));
+		.pipe(gulp.dest(staticRoot + 'css/fonts/'));
 });
 
 
