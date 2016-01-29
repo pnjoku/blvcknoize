@@ -1,0 +1,15 @@
+{
+  "name": "blvcknoize",
+  "version": "1.0.0",
+  "description": "Blog",
+  "main": "keystone.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@brandonftaylor.git.beanstalkapp.com:/brandonftaylor/blvcknoize.git"
+  },
+  "author": "Brandon Taylor",
+  "license": "Apache-2.0"
+}
