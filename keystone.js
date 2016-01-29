@@ -11,16 +11,14 @@ keystone.init({
 
 	'name': 'blvcknoize',
 	'brand': 'blvcknoize',
-	
-	'less': 'public',
-	'static': 'public',
-	'favicon': 'public/favicon.ico',
+
+	'static': 'static',
 	'views': 'templates/views',
 	'view engine': 'html',
 	'custom engine': cons.nunjucks,
-	
+
 	'emails': 'templates/emails',
-	
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -38,7 +36,6 @@ keystone.set('locals', {
 });
 
 keystone.set('routes', require('./routes'));
-
 
 keystone.set('email locals', {
 	logo_src: '/images/logo-email.gif',
