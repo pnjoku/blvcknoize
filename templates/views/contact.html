@@ -1,13 +1,9 @@
-{% extends "templates/layouts/default.html" %}
+{% extends "templates/layouts/base.html" %}
 
-{% block intro %}
+{% block main %}
 	<div class="container">
 		<h1>Contact Us</h1>
-	</div>
-{% endblock %}
 
-{% block content %}
-	<div class="container">
 		{% if enquirySubmitted %}
 			<h3>Thanks for getting in touch.</h3>
 		{% else %}
