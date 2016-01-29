@@ -1,9 +1,29 @@
 {
   "name": "blvcknoize",
   "version": "1.0.0",
-  "description": "Blog",
-  "main": "keystone.js",
+  "description": "Blog"
+  "private": true,
+  "dependencies": {
+    "keystone": "^0.3.14",
+    "async": "^1.4.2",
+    "underscore": "^1.8.3",
+    "consolidate": "^0.10.0",
+    "nunjucks": "^1.0.5",
+    "dotenv": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.7.0",
+    "gulp-jshint": "^1.9.0",
+    "jshint-stylish": "^0.1.3",
+    "gulp-shell": "^0.4.3",
+    "gulp-watch": "^0.6.5"
+  },
+  "engines": {
+    "node": ">=0.10.22",
+    "npm": ">=1.3.14"
+  },
   "scripts": {
+    "start": "node keystone.js",
     "test": "gulp test"
   },
   "repository": {
@@ -11,5 +31,6 @@
     "url": "git@brandonftaylor.git.beanstalkapp.com:/brandonftaylor/blvcknoize.git"
   },
   "author": "Brandon Taylor",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "main": "keystone.js"
 }
