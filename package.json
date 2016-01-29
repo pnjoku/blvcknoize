@@ -1,7 +1,7 @@
 {
   "name": "blvcknoize",
   "version": "1.0.0",
-  "description": "Blog"
+  "description": "Blog",
   "private": true,
   "dependencies": {
     "keystone": "^0.3.14",
