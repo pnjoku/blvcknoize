@@ -4,7 +4,7 @@
   "description": "Blog",
   "private": true,
   "dependencies": {
-    "async": "^1.4.2",
+    "async": "1.5.2",
     "bootstrap": "3.3.6",
     "consolidate": "^0.10.0",
     "dotenv": "^1.1.0",
