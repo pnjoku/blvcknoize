@@ -4,12 +4,16 @@
   "description": "Blog",
   "private": true,
   "dependencies": {
-    "keystone": "^0.3.14",
     "async": "^1.4.2",
-    "underscore": "^1.8.3",
+    "bootstrap": "3.3.6",
     "consolidate": "^0.10.0",
+    "dotenv": "^1.1.0",
+    "font-awesome": "4.5.0",
+    "jquery": "2.2.0",
+    "jquery-lazyload": "1.9.7",
+    "keystone": "^0.3.14",
     "nunjucks": "^1.0.5",
-    "dotenv": "^1.1.0"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
