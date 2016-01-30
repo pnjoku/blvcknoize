@@ -2,10 +2,16 @@
 // customising the .env file in your project's root folder.
 require('dotenv').load();
 
-// Require keystone
-var keystone = require('keystone');
-var cons = require('consolidate');
-var nunjucks = require('nunjucks');
+var keystone = require('keystone'),
+    nunjucks = require('nunjucks'),
+    express = require('express'),
+    app = express(),
+    nunjucksConfig = new nunjucks.configure('templates', {
+        autoescape: true,
+        express: app
+    });
+
+keystone.app = app;
 
 keystone.init({
 
@@ -13,17 +19,16 @@ keystone.init({
 	'brand': 'blvcknoize',
 
 	'static': 'static',
-	'views': 'templates/views',
-	'view engine': 'html',
-	'custom engine': cons.nunjucks,
+    'view engine': 'html',
+    'custom engine': nunjucksConfig.render,
 
 	'emails': 'templates/emails',
 
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
-
+	'user model': 'User',
+	'port': process.env.PORT
 });
 
 keystone.import('models');
