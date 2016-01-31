@@ -10,10 +10,9 @@
 
         $('.page-scroll').bind('click', function(event) {
 			event.preventDefault();
-            var anchor = $(this);
 
             $('html, body').stop().animate({
-                scrollTop: anchor.attr('href').offset().top
+                scrollTop: $('#' + event.currentTarget.href.split('#')[1]).offset().top
             }, 1500, 'easeInOutExpo');
         });
 
