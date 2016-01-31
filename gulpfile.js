@@ -16,26 +16,28 @@ var staticRoot = 'static/',
 	jsRoot = staticRoot + 'js/',
 	nodeModulesRoot = 'node_modules/',
 	paths = {
-	src :['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
-	commonCss: [
-		staticRoot + 'css/src/bootstrap.css',
-		staticRoot + 'css/src/font-awesome.css',
-		staticRoot + 'css/src/agency.css'
-	],
-	commonJs: [
-		nodeModulesRoot + 'jquery/dist/jquery.js',
-		nodeModulesRoot + 'bootstrap/dist/bootstrap.js',
-		nodeModulesRoot + 'bootstrap/js/transition.js',
-		nodeModulesRoot + 'bootstrap/js/collapse.js',
-		nodeModulesRoot + 'jquery-lazyload/jquery.lazyload.js'
-	],
-	less: [
-		staticRoot + 'less/'
-	],
-	css: staticRoot + 'css/src/',
-	cssDist: staticRoot + 'css/dist/',
-	jsDist: jsRoot + 'dist/'
-};
+		src :['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
+		commonCss: [
+			staticRoot + 'css/src/bootstrap.css',
+			staticRoot + 'css/src/font-awesome.css',
+			staticRoot + 'css/src/agency.css'
+		],
+		commonJs: [
+			nodeModulesRoot + 'jquery/dist/jquery.js',
+			nodeModulesRoot + 'jquery-lazyload/jquery.lazyload.js',
+			nodeModulesRoot + 'jquery.easing/jquery.easing.js',
+			nodeModulesRoot + 'bootstrap/dist/bootstrap.js',
+			nodeModulesRoot + 'bootstrap/js/transition.js',
+			nodeModulesRoot + 'bootstrap/js/collapse.js',
+			jsRoot + 'src/agency.js'
+		],
+		less: [
+			staticRoot + 'less/'
+		],
+		css: staticRoot + 'css/src/',
+		cssDist: staticRoot + 'css/dist/',
+		jsDist: jsRoot + 'dist/'
+	};
 
 function reportChange(event){
 	console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
