@@ -5,11 +5,14 @@ require('dotenv').load();
 var keystone = require('keystone'),
     nunjucks = require('nunjucks'),
     express = require('express'),
+	bodyParser = require('body-parser'),
     app = express(),
     nunjucksConfig = new nunjucks.configure('templates', {
         autoescape: true,
         express: app
     });
+
+app.use(bodyParser.text());
 
 keystone.app = app;
 

@@ -13,11 +13,11 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	
+
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	app.all('/contact', routes.views.contact);
+	app.post('/contact', routes.views.contact);
 	
 };
