@@ -86,6 +86,7 @@ gulp.task('compile-font-awesome-less', function() {
 
 gulp.task('distribute-js', function() {
 	gulp.src(jsRoot + 'src/*')
+		.pipe(uglify())
 		.pipe(gulp.dest(paths.jsDist));
 });
 
