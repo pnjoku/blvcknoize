@@ -84,6 +84,10 @@ gulp.task('compile-font-awesome-less', function() {
 		.pipe(gulp.dest(staticRoot + 'css/fonts/'));
 });
 
+gulp.task('distribute-js', function() {
+	gulp.src(jsRoot + 'src/*')
+		.pipe(gulp.dest(paths.jsDist));
+});
 
 gulp.task('build-common-css', function() {
 	return gulp.src(paths.commonCss)
@@ -128,6 +132,8 @@ gulp.task('test', function() {
             process.exit();
         });
 });
+
+gulp.task('build', ['build-common-js', 'build-common-css', 'distribute-js']);
 
 gulp.task('runKeystone', shell.task('node keystone.js'));
 
