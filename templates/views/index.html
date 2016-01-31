@@ -10,7 +10,6 @@
 		</div>
 	</header>
 
-	<!-- This will become the posts section -->
 	<section id="posts">
 		<div class="container">
 			<div class="row">
@@ -19,32 +18,55 @@
 					<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 				</div>
 			</div>
-			<div class="row text-center">
-				<div class="col-md-4">
-					<span class="fa-stack fa-4x">
-						<i class="fa fa-circle fa-stack-2x text-primary"></i>
-						<i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-					</span>
-					<h4 class="service-heading">E-Commerce</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-				</div>
-				<div class="col-md-4">
-					<span class="fa-stack fa-4x">
-						<i class="fa fa-circle fa-stack-2x text-primary"></i>
-						<i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-					</span>
-					<h4 class="service-heading">Responsive Design</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-				</div>
-				<div class="col-md-4">
-					<span class="fa-stack fa-4x">
-						<i class="fa fa-circle fa-stack-2x text-primary"></i>
-						<i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-					</span>
-					<h4 class="service-heading">Web Security</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					{% for post in results.results %}
+					<div class="media">
+						{% if post.thumbnailImage %}
+						<div class="media-left">
+							<a href="/blog/posts/{{ post.slug }}">
+								<img class="media-object" src="{{ post.thumbnailImage.url }}"  />
+							</a>
+						</div>
+						{% endif %}
+						<div class="media-body">
+							<h4 class="media-heading"><a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h4>
+							<small>{{ post.publishedDate|date('M/D/YYYY') }}</small>
+							{{ post.content.brief|safe }}
+						</div>
+					</div>
+					{% endfor %}
 				</div>
 			</div>
+			{% if results.pages.length > 1 %}
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<nav>
+						<ul class="pagination">
+							{% if results.previous %}
+							<li>
+								<a href="?page={{ results.previous }}" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							{% endif %}
+							{% for page in results.pages %}
+							<li>
+								<a href="?page={{ page }}">{{ page }}</a>
+							</li>
+							{% endfor %}
+							{% if results.next %}
+							<li>
+								<a href="?page={{ results.next }}" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+							{% endif %}
+						</ul>
+					</nav>
+				</div>
+			</div>
+			{% endif %}
 		</div>
 	</section>
 

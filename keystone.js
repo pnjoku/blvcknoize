@@ -4,6 +4,7 @@ require('dotenv').load();
 
 var keystone = require('keystone'),
     nunjucks = require('nunjucks'),
+    dateFilter = require('nunjucks-date-filter')
     express = require('express'),
 	bodyParser = require('body-parser'),
     app = express(),
@@ -14,10 +15,11 @@ var keystone = require('keystone'),
 
 app.use(bodyParser.text());
 
-keystone.app = app;
+// Custom Nunjucks filters
+nunjucksConfig.addFilter('date', dateFilter);
 
 keystone.init({
-
+    'app': app,
 	'name': 'blvcknoize',
 	'brand': 'blvcknoize',
 
