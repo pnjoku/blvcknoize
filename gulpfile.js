@@ -29,7 +29,7 @@ var staticRoot = 'static/',
 			nodeModulesRoot + 'bootstrap/dist/bootstrap.js',
 			nodeModulesRoot + 'bootstrap/js/transition.js',
 			nodeModulesRoot + 'bootstrap/js/collapse.js',
-			jsRoot + 'src/agency/.js'
+			jsRoot + 'src/agency.js'
 		],
 		less: [
 			staticRoot + 'less/'
