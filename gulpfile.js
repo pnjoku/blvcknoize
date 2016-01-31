@@ -10,7 +10,8 @@ var gulp = require('gulp'),
   	cleanCSS = new LessPluginCleanCSS({ advanced: true }),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
-	mocha = require('gulp-mocha');
+	mocha = require('gulp-mocha'),
+	rename = require('gulp-rename');
 
 var staticRoot = 'static/',
 	jsRoot = staticRoot + 'js/',
@@ -26,10 +27,10 @@ var staticRoot = 'static/',
 			nodeModulesRoot + 'jquery/dist/jquery.js',
 			nodeModulesRoot + 'jquery-lazyload/jquery.lazyload.js',
 			nodeModulesRoot + 'jquery.easing/jquery.easing.js',
+			nodeModulesRoot + 'jquery-form/jquery.form.js',
 			nodeModulesRoot + 'bootstrap/dist/bootstrap.js',
 			nodeModulesRoot + 'bootstrap/js/transition.js',
-			nodeModulesRoot + 'bootstrap/js/collapse.js',
-			jsRoot + 'src/agency.js'
+			nodeModulesRoot + 'bootstrap/js/collapse.js'
 		],
 		less: [
 			staticRoot + 'less/'
@@ -87,6 +88,9 @@ gulp.task('compile-font-awesome-less', function() {
 gulp.task('distribute-js', function() {
 	gulp.src(jsRoot + 'src/*')
 		.pipe(uglify())
+		.pipe(rename({
+			suffix: '.min'
+		}))
 		.pipe(gulp.dest(paths.jsDist));
 });
 
@@ -125,8 +129,7 @@ gulp.task('test', function() {
             ui: 'bdd',
             reporter: 'nyan'
         }))
-        .once('error', function(error) {
-			console.log(error);
+        .once('error', function() {
             process.exit(1);
         })
         .once('end', function() {
