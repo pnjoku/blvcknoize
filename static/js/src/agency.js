@@ -5,22 +5,42 @@
  */
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
+(function($) {
+    $(document).ready(function() {
+
+        $('.page-scroll').bind('click', function(event) {
+			event.preventDefault();
+            var anchor = $(this);
+
+            $('html, body').stop().animate({
+                scrollTop: anchor.attr('href').offset().top
+            }, 1500, 'easeInOutExpo');
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+
+        // Shrink navigation
+        var header = $('.navbar-default'),
+			didScroll = false;
+
+		window.addEventListener('scroll', function() {
+			if(!didScroll) {
+				didScroll = true;
+				setTimeout( scrollPage, 250 );
+			}
+		}, false);
+
+		function scrollPage() {
+			if ( window.pageYOffset || document.documentElement.scrollTop >= 300 ) {
+				header.addClass('navbar-shrink');
+			}
+			else {
+				header.removeClass('navbar-shrink');
+			}
+			didScroll = false;
+		}
     });
-});
-
-// Highlight the top nav as scrolling occurs
-$('body').scrollspy({
-    target: '.navbar-fixed-top'
-})
-
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
-});
+})(window.jQuery);
