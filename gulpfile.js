@@ -120,7 +120,7 @@ gulp.task('watch:lint', function () {
 });
 
 gulp.task('test', function() {
-    return gulp.src('tests/*.js', { read: false })
+    return gulp.src('test/*.js', { read: false })
         .pipe(mocha({
             ui: 'bdd',
             reporter: 'nyan'
