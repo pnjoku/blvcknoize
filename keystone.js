@@ -4,7 +4,7 @@ require('dotenv').load();
 
 var keystone = require('keystone'),
     nunjucks = require('nunjucks'),
-    dateFilter = require('nunjucks-date-filter')
+    dateFilter = require('nunjucks-date-filter'),
     express = require('express'),
 	bodyParser = require('body-parser'),
     app = express(),
