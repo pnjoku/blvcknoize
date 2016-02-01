@@ -24,13 +24,13 @@
 					<div class="media">
 						{% if post.thumbnailImage %}
 						<div class="media-left">
-							<a href="/blog/posts/{{ post.slug }}">
+							<a href="/blog/post/{{ post.slug }}">
 								<img class="media-object" src="{{ post.thumbnailImage.url }}"  />
 							</a>
 						</div>
 						{% endif %}
 						<div class="media-body">
-							<h4 class="media-heading"><a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h4>
+							<h4 class="media-heading"><a href="/blog/post/{{ post.slug }}">{{ post.title }}</a></h4>
 							<small>{{ post.publishedDate|date('M/D/YYYY') }}</small>
 							{{ post.content.brief|safe }}
 						</div>

@@ -14,8 +14,8 @@
 
 		{% block extraHead %}{% endblock %}
 	</head>
-	<body id="page-top">
-		<nav class="navbar navbar-default navbar-fixed-top">
+	<body id="page-top" class="{% block bodyClass %}{% endblock %}">
+		<nav class="navbar navbar-default navbar-fixed-top {% block mainNavClass %}{% endblock %}">
 	        <div class="container">
 	            <div class="navbar-header page-scroll">
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -32,6 +32,7 @@
 	                    <li class="hidden">
 	                        <a href="#page-top"></a>
 	                    </li>
+						{% block nav %}
 	                    <li>
 	                        <a class="page-scroll" href="#posts">Posts</a>
 	                    </li>
@@ -41,6 +42,7 @@
 	                    <li>
 	                        <a class="page-scroll" href="#contact">Contact</a>
 	                    </li>
+						{% endblock %}
 	                </ul>
 	            </div>
 	        </div>
