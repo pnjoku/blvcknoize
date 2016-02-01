@@ -142,7 +142,7 @@ gulp.task('build', ['build-common-js', 'build-common-css', 'distribute-js']);
 gulp.task('runKeystone', shell.task('node keystone.js'));
 
 gulp.task('watch', ['watch:lint'], function() {
-	gulp.watch(paths.less + '*.less', ['compile-less']).on('change', reportChange);
+	gulp.watch(paths.less + '*.less', ['compile-less', 'build-common-css']).on('change', reportChange);
 });
 
 gulp.task('default', ['watch', 'runKeystone']);
